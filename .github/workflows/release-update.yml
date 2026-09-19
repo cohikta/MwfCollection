@@ -10,6 +10,7 @@ on:
       filename:
         description: 'file'
         required: true
+        default: '/'
 
 jobs:
   upload:
@@ -32,7 +33,7 @@ jobs:
             --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0" \
             --header="Cookie: ${{ secrets.MWF_COOKIES }}" \
             --out="data.zip" \
-            "https://member2.mywife.cc/girl/${{ github.event.inputs.url }}/${{ github.event.inputs.filename }}.mp4"
+            "https://member2.mywife.cc/girl/${{ github.event.inputs.url }}${{ github.event.inputs.filename }}.mp4"
 
           echo "✅ 下载完成："
           ls -lh "data.zip"
